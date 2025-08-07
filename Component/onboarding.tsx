@@ -1,5 +1,7 @@
 "use client";
 
+import { useRouter } from "next/navigation";
+
 type Onboardingprops = {
   content: string;
   img: string;
@@ -13,6 +15,7 @@ export const Onboarding = ({
   page,
   handleChange,
 }: Onboardingprops) => {
+  const router = useRouter();
   return (
     <div className="flex flex-col w-full max-w-xl mx-auto px-4 py-6 sm:px-8 h-screen bg-black">
       {/* Progress Bar */}
@@ -28,7 +31,7 @@ export const Onboarding = ({
           ))}
         </div>
         {page !== 3 && (
-          <button className="ml-4 text-xs sm:text-sm text-[#00BFA6]">
+          <button className="ml-4 text-xs sm:text-sm text-[#00BFA6]" onClick={()=>router.push("mobilenumber")}>
             Skip →
           </button>
         )}
