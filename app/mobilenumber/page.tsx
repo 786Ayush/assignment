@@ -86,10 +86,10 @@ export default function Home() {
       </div>
 
       {/* Terms & Conditions */}
-      <div className="flex items-start gap-2 text-sm text-gray-700">
+      <div className="flex items-center gap-2 text-sm text-gray-700">
         <label
           htmlFor="terms"
-          className="flex items-start gap-2 cursor-pointer"
+          className="flex items-center gap-2 cursor-pointer"
         >
           {/* Hidden Native Checkbox */}
           <input
@@ -101,9 +101,8 @@ export default function Home() {
           />
 
           {/* Custom Checkbox Box */}
-          <div className="mt-1 w-5 h-5 border-2 border-gray-300 rounded-sm flex items-center justify-center peer-checked:bg-[#00BFA6] peer-checked:border-[#00BFA6]">
-            {/* Tick Icon */}
-            <img src={"/check_small.svg"} alt="tick" />
+          <div className=" w-5 h-5 border-2 border-gray-300 rounded-sm flex items-center justify-center peer-checked:bg-[#00BFA6] peer-checked:border-[#00BFA6]">
+            {data.check && <img src={"/check_small.svg"} alt="tick" />}
           </div>
 
           {/* Label Text */}
