@@ -87,21 +87,30 @@ export default function Home() {
 
       {/* Terms & Conditions */}
       <div className="flex items-start gap-2 text-sm text-gray-700">
-        <input
-          type="checkbox"
-          checked={data.check}
-          onChange={(e) => setdata({ ...data, check: e.target.checked })}
-          id="terms"
-          className="mt-1"
-        />
-        <label htmlFor="terms">
-          I agree to FirstStore’s{" "}
-          <span className="text-blue-600 underline cursor-pointer">
-            User Agreement
-          </span>{" "}
-          &{" "}
-          <span className="text-blue-600 underline cursor-pointer">
-            Privacy Policy
+        <label
+          htmlFor="terms"
+          className="flex items-start gap-2 cursor-pointer"
+        >
+          {/* Hidden Native Checkbox */}
+          <input
+            type="checkbox"
+            id="terms"
+            checked={data.check}
+            onChange={(e) => setdata({ ...data, check: e.target.checked })}
+            className="peer hidden"
+          />
+
+          {/* Custom Checkbox Box */}
+          <div className="mt-1 w-5 h-5 border-2 border-gray-300 rounded-sm flex items-center justify-center peer-checked:bg-[#00BFA6] peer-checked:border-[#00BFA6]">
+            {/* Tick Icon */}
+            <img src={"/check_small.svg"} alt="tick" />
+          </div>
+
+          {/* Label Text */}
+          <span>
+            I agree to FirstStore’s{" "}
+            <span className="text-[#00BFA6]">User Agreement</span> &{" "}
+            <span className="text-[#00BFA6]">Privacy Policy</span>
           </span>
         </label>
       </div>

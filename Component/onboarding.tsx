@@ -1,10 +1,12 @@
 "use client";
+
 type Onboardingprops = {
   content: string;
   img: string;
   page: number;
   handleChange: () => void;
 };
+
 export const Onboarding = ({
   content,
   img,
@@ -12,9 +14,9 @@ export const Onboarding = ({
   handleChange,
 }: Onboardingprops) => {
   return (
-    <div className="flex flex-col items-center w-full max-w-xl mx-auto px-4 py-6 sm:px-8 h-screen justify-between">
+    <div className="flex flex-col w-full max-w-xl mx-auto px-4 py-6 sm:px-8 h-screen bg-black">
       {/* Progress Bar */}
-      <div className="flex w-full items-center justify-between mb-6">
+      <div className="flex w-full items-center justify-between mb-4">
         <div className="flex flex-1 gap-2">
           {[1, 2, 3].map((step) => (
             <div
@@ -26,28 +28,31 @@ export const Onboarding = ({
           ))}
         </div>
         {page !== 3 && (
-          <button className="ml-4 text-xs sm:text-sm text-gray-500 hover:text-gray-700 transition-colors">
-            Skip
+          <button className="ml-4 text-xs sm:text-sm text-[#00BFA6]">
+            Skip →
           </button>
         )}
       </div>
 
-      {/* Content */}
-      <div className="text-center text-3xl sm:text-4xl  font-bold mb-4 w-full break-words">
-        {content}
+      {/* Scrollable Middle Section */}
+      <div className="flex-1 overflow-y-auto flex flex-col items-center justify-center">
+        {/* Content */}
+        <div className=" text-5xl sm:text-4xl font-bold mb-4 w-full break-words text-white">
+          {content}
+        </div>
+
+        {/* Image */}
+        <div className="w-full flex justify-center mb-4">
+          <img
+            src={img}
+            alt="content"
+            className=" w-full h-auto object-contain rounded-md shadow-md"
+          />
+        </div>
       </div>
 
-      {/* Image */}
-      <div className="w-full flex justify-center mb-4">
-        <img
-          src={img}
-          alt="content"
-          className="max-w-[200px] sm:max-w-[300px] w-full h-auto object-contain rounded-md shadow-md"
-        />
-      </div>
-
-      {/* Action Button */}
-      <div className="w-full flex justify-center">
+      {/* Bottom Button (Always Visible) */}
+      <div className="w-full flex justify-center mt-4">
         <button
           className="w-full sm:w-auto px-6 py-2 bg-[#00BFA6] text-white rounded-lg font-semibold shadow hover:bg-[#009e8a] transition-colors"
           onClick={handleChange}
